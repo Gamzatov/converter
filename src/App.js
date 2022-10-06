@@ -14,6 +14,7 @@ function App() {
     .then((res) => res.json())
     .then((json) => {
       // setRates(json.rates);
+      console.log(ratesRef.current = json.rates)
       ratesRef.current = json.rates;
       onChangeToPrice(1);
     }).catch((err) => {
@@ -21,6 +22,7 @@ function App() {
       alert('не удалось получить информацию');
     })
   }, []);
+  
   const onChangeFromPrice = (value) => {
     const price = value / ratesRef.current[fromCurrency];
     const result = price * ratesRef.current[toCurrency];
@@ -40,7 +42,13 @@ function App() {
     onChangeToPrice(toPrice);
   }, [toCurrency]);
 
-
+const handleInput = (e) => {
+  const text = e.target.value;
+  if( text.toLowerCase().includes('eur' || 'usd' || 'uah')){
+  }
+ 
+  
+}
   return (
     <div className="App">
       <Block

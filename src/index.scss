@@ -79,3 +79,9 @@ body {
     }
   }
 }
+@media(max-width:762px){
+  .App{
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
